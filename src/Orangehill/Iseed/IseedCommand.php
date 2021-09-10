@@ -74,6 +74,10 @@ class IseedCommand extends Command
         if ($chunkSize < 1) {
             $chunkSize = null;
         }
+        
+        if($this->argument('tables') === null){
+            $tables = Schema::getConnection()->getDoctrineSchemaManager()->listTableNames();
+        }
 
         $tableIncrement = 0;
         foreach ($tables as $table) {
@@ -146,7 +150,7 @@ class IseedCommand extends Command
     protected function getArguments()
     {
         return array(
-            array('tables', InputArgument::REQUIRED, 'comma separated string of table names'),
+            array('tables', InputArgument::OPTIONAL, 'comma separated string of table names'),
         );
     }
 
