@@ -5,6 +5,7 @@ namespace Orangehill\Iseed;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
+use Illuminate\Support\Facades\Schema;
 
 class IseedCommand extends Command
 {
